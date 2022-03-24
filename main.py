@@ -5,8 +5,14 @@ file_path = sys.argv[1]
 file = open(file_path, encoding="utf8")
 
 lines = file.readlines()
-message1 = ""
-i = 0
+processed_lines = list()
 for line in lines:
-    message1 = process_line(line)
-    i += 1
+    processed_lines.append(process_line(line))
+
+csv = open(sys.argv[2], 'w', encoding="utf8")
+
+for name, message in processed_lines:
+    if "Evan" not in name:
+        csv.write(message)
+
+csv.close()
