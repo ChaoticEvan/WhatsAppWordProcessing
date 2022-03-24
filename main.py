@@ -6,8 +6,7 @@ file = open(file_path, encoding="utf8")
 
 lines = file.readlines()
 message1 = ""
+i = 0
 for line in lines:
     message1 = process_line(line)
-
-print(message1)
-
+    i += 1
